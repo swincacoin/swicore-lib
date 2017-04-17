@@ -1,7 +1,7 @@
 {
-  "name": "bitcore-lib-dash",
+  "name": "bitcore-lib-pivx",
   "version": "0.13.20",
-  "description": "A pure and powerful JavaScript Dash library.",
+  "description": "A pure and powerful JavaScript PIVX library.",
   "author": "BitPay <dev@bitpay.com>",
   "main": "index.js",
   "scripts": {
@@ -69,7 +69,7 @@
     }
   ],
   "keywords": [
-    "dash",
+    "pivx",
     "transaction",
     "address",
     "p2p",
@@ -86,7 +86,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/dashpay/bitcore-lib-dash.git"
+    "url": "https://github.com/furszy/bitcore-lib-dash.git"
   },
   "browser": {
     "request": "browser-request"
