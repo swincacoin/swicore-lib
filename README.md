@@ -1,24 +1,22 @@
-PivCore Library
-=======
+bitcore-lib-colx
+================
 
-[![NPM Package](https://img.shields.io/npm/v/bitcore-lib-dash.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-lib-dash)
-[![Build Status](https://img.shields.io/travis/dashpay/pivcore-lib.svg?branch=master&style=flat-square)](https://travis-ci.org/dashpay/pivcore-lib)
-[![Coverage Status](https://img.shields.io/coveralls/dashpay/pivcore-lib.svg?style=flat-square)](https://coveralls.io/github/dashpay/pivcore-lib?branch=master)
-
-A pure and powerful JavaScript Pivx library.
+Based on the good work of [https://github.com/agustinkassis/pivcore-lib], which is based on [https://github.com/dashevo/bitcore-lib-dash], which in turn is based on [https://github.com/bitpay/bitcore-lib].
 
 ## Principles
 
-Pivx is a powerful new peer-to-peer platform for the next generation of financial technology. The decentralized nature of the PIVX network allows for highly resilient pivx infrastructure, and the developer community needs reliable, open-source tools to implement pivx apps and services.
+
+ColossusXT (Colx) Coin: Extremely Resource Friendly Cryptocurrency, Lightning Fast, Completely Anonymous.
+Details: [https://colossusxt.org/]
 
 ## Get Started
 
 ```
-npm install pivcore-lib
+npm install bitcore-lib-colx
 ```
 
 ```
-bower install pivcore-lib
+bower install bitcore-lib-colx
 ```
 
 ## Documentation
@@ -36,8 +34,8 @@ To get community assistance and ask for help with implementation questions, plea
 * [Generate a address from a SHA256 hash](https://github.com/agustinkassis/pivcore/blob/master/docs/examples.md#generate-a-address-from-a-sha256-hash)
 * [Import an address via WIF](https://github.com/agustinkassis/pivcore/blob/master/docs/examples.md#import-an-address-via-wif)
 * [Create a Transaction](https://github.com/agustinkassis/pivcore/blob/master/docs/examples.md#create-a-transaction)
-* [Sign a Pivx message](https://github.com/agustinkassis/pivcore/blob/master/docs/examples.md#sign-a-bitcoin-message)
-* [Verify a Pivx message](https://github.com/agustinkassis/pivcore/blob/master/docs/examples.md#verify-a-bitcoin-message)
+* [Sign a COLX message](https://github.com/agustinkassis/pivcore/blob/master/docs/examples.md#sign-a-bitcoin-message)
+* [Verify a COLX message](https://github.com/agustinkassis/pivcore/blob/master/docs/examples.md#verify-a-bitcoin-message)
 * [Create an OP RETURN transaction](https://github.com/agustinkassis/pivcore/blob/master/docs/examples.md#create-an-op-return-transaction)
 * [Create a 2-of-3 multisig P2SH address](https://github.com/agustinkassis/pivcore/blob/master/docs/examples.md#create-a-2-of-3-multisig-p2sh-address)
 * [Spend from a 2-of-2 multisig P2SH address](https://github.com/agustinkassis/pivcore/blob/master/docs/examples.md#spend-from-a-2-of-2-multisig-p2sh-address)
@@ -55,13 +53,13 @@ Please send pull requests for bug fixes, code optimization, and ideas for improv
 
 ## Building the Browser Bundle
 
-To build a pivcore-lib full bundle for the browser:
+To build a bitcore-lib-colx full bundle for the browser:
 
 ```sh
 gulp browser
 ```
 
-This will generate files named `pivcore-lib.js` and `pivcore-lib.min.js`.
+This will generate files named `bitcore-lib-colx.js` and `bitcore-lib-colx.min.js`.
 
 You can also use our pre-generated files, provided for each release along with a PGP signature by one of the project's maintainers. To get them, checkout a release commit (for example, https://github.com/agustinkassis/pivcore/commit/e33b6e3ba6a1e5830a079e02d949fce69ea33546 for v0.12.6).
 
@@ -76,7 +74,7 @@ To verify signatures, use the following PGP keys:
 
 ```sh
 git clone https://github.com/agustinkassis/pivcore
-cd pivcore-lib
+cd bitcore-lib-colx
 npm install
 ```
 
