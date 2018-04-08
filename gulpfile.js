@@ -1,5 +1,5 @@
 
 
-var bitcoreTasks = require('bitcore-build-pivx');
+var bitcoreTasks = require('bitcore-build-colx');
 
 bitcoreTasks('lib');
