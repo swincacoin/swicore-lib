@@ -28,6 +28,12 @@ describe('Transaction', function() {
     transaction.uncheckedSerialize().should.equal(tx_1_hex);
   });
 
+  it('should parse the version as a signed integer', function () {
+    var transaction = Transaction('ffffffff0000ffffffff')
+    transaction.version.should.equal(-1);
+    transaction.nLockTime.should.equal(0xffffffff);
+  });
+
   it('fails if an invalid parameter is passed to constructor', function() {
     expect(function() {
       return new Transaction(1);
@@ -200,6 +206,14 @@ describe('Transaction', function() {
     script: Script.buildPublicKeyHashOut(fromAddress).toString(),
     satoshis: 100000
   };
+
+  var simpleUtxoWith1000000Satoshis = {
+    address: fromAddress,
+    txId: 'a477af6b2667c29670467e4e0728b685ee07b240235771862318e29ddbe58458',
+    outputIndex: 0,
+    script: Script.buildPublicKeyHashOut(fromAddress).toString(),
+    satoshis: 1000000
+  };
   var anyoneCanSpendUTXO = JSON.parse(JSON.stringify(simpleUtxoWith100000Satoshis));
   anyoneCanSpendUTXO.script = new Script().add('OP_TRUE');
   var toAddress = 'yXGeNPQXYFXhLAN1ZKrAjxzzBnZ2JZNKnh';
@@ -218,6 +232,7 @@ describe('Transaction', function() {
     script: Script.buildPublicKeyHashOut(fromAddress).toString(),
     satoshis: 1e8
   };
+
   var tenth = 1e7;
   var fourth = 25e6;
   var half = 5e7;
@@ -303,8 +318,8 @@ describe('Transaction', function() {
     });
     it('accepts a P2SH address for change', function() {
       var transaction = new Transaction()
-        .from(simpleUtxoWith100000Satoshis)
-        .to(toAddress, 50000)
+        .from(simpleUtxoWith1000000Satoshis)
+        .to(toAddress, 500000)
         .change(changeAddressP2SH)
         .sign(privateKey);
       transaction.outputs.length.should.equal(2);
@@ -1218,6 +1233,40 @@ describe('Transaction', function() {
         tx.inputs[1].sequenceNumber = 0xfffffffd;
         tx.isRBF().should.equal(true);
       });
+    });
+  });
+  describe('fromObject', function () {
+    it('Should copy transaction when passing instance of Transaction as arg', function() {
+      var tx = bitcore.Transaction({
+        hash: '132856bf03d6415562a556437d22ac63c37a4595fd986c796eb8e02dc031aa25',
+        version: 1,
+        inputs: [
+          {
+            prevTxId: 'e30ac3db24ef28500f023775d8eb06ad8a26241690080260308208a4020012a4',
+            outputIndex: 0,
+            sequenceNumber: 4294967294,
+            script: '473044022024dbcf41ccd4f3fe325bebb7a87d0bf359eefa03826482008e0fe7795586ad440220676f5f211ebbc311cfa631f14a8223a343cbadc6fa97d6d17f8d2531308b533201',
+            scriptString: '71 0x3044022024dbcf41ccd4f3fe325bebb7a87d0bf359eefa03826482008e0fe7795586ad440220676f5f211ebbc311cfa631f14a8223a343cbadc6fa97d6d17f8d2531308b533201',
+            output: {
+              satoshis: 5000000000,
+              script: '2103b1c65d65f1ff3fe145a4ede692460ae0606671d04e8449e99dd11c66ab55a7feac'
+            }
+          }
+        ],
+        outputs: [
+          {
+            satoshis: 3999999040,
+            script: '76a914fa1e0abfb8d26e494375f47e04b4883c44dd44d988ac'
+          },
+          {
+            satoshis: 1000000000,
+            script: '76a9140b2f0a0c31bfe0406b0ccc1381fdbe311946dadc88ac'
+          }
+        ],
+        nLockTime: 139
+      });
+      var copiedTransaction = bitcore.Transaction().fromObject(tx);
+      expect(copiedTransaction).to.be.an.instanceof(bitcore.Transaction);
     });
   });
 });

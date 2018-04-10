@@ -9,7 +9,7 @@ var BlockHeader = bitcore.BlockHeader;
 var fs = require('fs');
 var should = require('chai').should();
 
-// https://test-insight.dash.org/block/0000000cc55c08ed64afb41c7c2f382a64901eadfcc6663c4e70987fdc0e8401
+// https://insight.colossusxt.org/block/0000000cc55c08ed64afb41c7c2f382a64901eadfcc6663c4e70987fdc0e8401
 var dataRawBlockBuffer = fs.readFileSync('test/data/blk19976-testnet.dat');
 var dataRawBlockBinary = fs.readFileSync('test/data/blk19976-testnet.dat', 'binary');
 var dataRawId = '0000000cc55c08ed64afb41c7c2f382a64901eadfcc6663c4e70987fdc0e8401';
@@ -78,6 +78,16 @@ describe('BlockHeader', function() {
     });
 
   });
+
+  describe('version', function() {
+    it('is interpreted as an int32le', function() {
+      var hex = 'ffffffff00000000000000000000000000000000000000000000000000000000000000004141414141414141414141414141414141414141414141414141414141414141010000000200000003000000';
+      var header = BlockHeader.fromBuffer(new Buffer(hex, 'hex'));
+      header.version.should.equal(-1);
+      header.timestamp.should.equal(1);
+    });
+  });
+
 
   describe('#fromObject', function() {
 

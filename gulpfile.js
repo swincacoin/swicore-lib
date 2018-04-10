@@ -1,5 +1,2 @@
-
-
 var bitcoreTasks = require('bitcore-build-colx');
-
-bitcoreTasks('lib');
+bitcoreTasks('lib-colx');

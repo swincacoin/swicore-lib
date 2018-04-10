@@ -1,8 +1,8 @@
 {
   "name": "bitcore-lib-colx",
-  "version": "0.13.20",
-  "description": "JavaScript COLX library",
-  "author": "DeltaEngine <Support@DeltaEngine.net>",
+  "version": "0.15.3",
+  "description": "JavaScript COLX library for bitcore",
+  "author": "BitPay <dev@bitpay.com>",
   "main": "index.js",
   "scripts": {
     "lint": "gulp lint",
@@ -70,8 +70,6 @@
   ],
   "keywords": [
     "colx",
-    "colx-lib",
-    "bitcore-lib-colx",
     "transaction",
     "address",
     "p2p",
@@ -88,8 +86,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/deltaengine/bitcore-lib-colx"
+    "url": "https://github.com/deltaengine/bitcore-lib-colx.git"
   },
+  "bugs": {
+    "url": "https://github.com/deltaengine/bitcore-lib-colx/issues"
+  },
+  "homepage": "https://github.com/deltaengine/bitcore-lib-colx",
   "browser": {
     "request": "browser-request"
   },
@@ -99,10 +101,11 @@
     "buffer-compare": "=1.0.0",
     "elliptic": "=3.0.3",
     "inherits": "=2.0.1",
-    "lodash": "=3.10.1",
+    "lodash": "=4.17.1",
     "sha512": "=0.0.1"
   },
   "devDependencies": {
+    "bitcore-build-colx": "github:deltaengine/bitcore-build-colx",
     "browserify": "latest",
     "brfs": "^1.2.0",
     "chai": "^1.10.0",
