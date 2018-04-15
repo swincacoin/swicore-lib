@@ -105,7 +105,6 @@
     "sha512": "=0.0.1"
   },
   "devDependencies": {
-    "bitcore-build-colx": "github:deltaengine/bitcore-build-colx",
     "browserify": "latest",
     "brfs": "^1.2.0",
     "chai": "^1.10.0",
