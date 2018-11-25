@@ -1,22 +1,22 @@
-bitcore-lib-colx
+swicore-lib
 ================
 
-Based on the good work of [https://github.com/agustinkassis/pivcore-lib], which is based on [https://github.com/dashevo/bitcore-lib-dash], which in turn is based on [https://github.com/bitpay/bitcore-lib].
+Based on the good work of [https://github.com/DeltaEngine/swicore-lib], a fork of [https://github.com/agustinkassis/pivcore-lib], which is based on [https://github.com/dashevo/bitcore-lib-dash], which in turn is based on [https://github.com/bitpay/bitcore-lib].
 
 ## Principles
 
 
-ColossusXT (Colx) Coin: Extremely Resource Friendly Cryptocurrency, Lightning Fast, Completely Anonymous.
-Details: [https://colossusxt.org/]
+Swinca (swi) Coin: Real-Estate Finance Revolution
+Details: [https://swinca.io]
 
 ## Get Started
 
 ```
-npm install bitcore-lib-colx
+npm install swicore-lib
 ```
 
 ```
-bower install bitcore-lib-colx
+bower install swicore-lib
 ```
 
 ## Documentation
@@ -34,8 +34,8 @@ To get community assistance and ask for help with implementation questions, plea
 * [Generate a address from a SHA256 hash](https://github.com/bitpay/bitcore-lib/blob/master/docs/examples.md#generate-a-address-from-a-sha256-hash)
 * [Import an address via WIF](https://github.com/bitpay/bitcore-lib/blob/master/docs/examples.md#import-an-address-via-wif)
 * [Create a Transaction](https://github.com/bitpay/bitcore-lib/blob/master/docs/examples.md#create-a-transaction)
-* [Sign a COLX message](https://github.com/bitpay/bitcore-lib/blob/master/docs/examples.md#sign-a-bitcoin-message)
-* [Verify a COLX message](https://github.com/bitpay/bitcore-lib/blob/master/docs/examples.md#verify-a-bitcoin-message)
+* [Sign a SWI message](https://github.com/bitpay/bitcore-lib/blob/master/docs/examples.md#sign-a-bitcoin-message)
+* [Verify a SWI message](https://github.com/bitpay/bitcore-lib/blob/master/docs/examples.md#verify-a-bitcoin-message)
 * [Create an OP RETURN transaction](https://github.com/bitpay/bitcore-lib/blob/master/docs/examples.md#create-an-op-return-transaction)
 * [Create a 2-of-3 multisig P2SH address](https://github.com/bitpay/bitcore-lib/blob/master/docs/examples.md#create-a-2-of-3-multisig-p2sh-address)
 * [Spend from a 2-of-2 multisig P2SH address](https://github.com/bitpay/bitcore-lib/blob/master/docs/examples.md#spend-from-a-2-of-2-multisig-p2sh-address)
@@ -53,19 +53,19 @@ Please send pull requests for bug fixes, code optimization, and ideas for improv
 
 ## Building the Browser Bundle
 
-To build a bitcore-lib-colx full bundle for the browser:
+To build a swicore-lib full bundle for the browser:
 
 ```sh
 gulp browser
 ```
 
-This will generate files named `bitcore-lib-colx.js` and `bitcore-lib-colx.min.js`.
+This will generate files named `swicore-lib.js` and `swicore-lib.min.js`.
 
 ## Development & Tests
 
 ```sh
-git clone https://github.com/deltaengine/bitcore-lib-colx
-cd bitcore-lib-colx
+git clone https://github.com/swincacoin/swicore-lib
+cd swicore-lib
 npm install
 ```
 

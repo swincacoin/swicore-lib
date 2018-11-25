@@ -1,7 +1,7 @@
 {
-  "name": "bitcore-lib-colx",
+  "name": "swicore-lib",
   "version": "0.15.3",
-  "description": "JavaScript COLX library for bitcore",
+  "description": "JavaScript SWI library for bitcore",
   "author": "BitPay <dev@bitpay.com>",
   "main": "index.js",
   "scripts": {
@@ -69,7 +69,7 @@
     }
   ],
   "keywords": [
-    "colx",
+    "swi",
     "transaction",
     "address",
     "p2p",
@@ -86,12 +86,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/deltaengine/bitcore-lib-colx.git"
+    "url": "https://github.com/swincacoin/swicore-lib.git"
   },
   "bugs": {
-    "url": "https://github.com/deltaengine/bitcore-lib-colx/issues"
+    "url": "https://github.com/swincacoin/swicore-lib/issues"
   },
-  "homepage": "https://github.com/deltaengine/bitcore-lib-colx",
+  "homepage": "https://github.com/swincacoin/swicore-lib",
   "browser": {
     "request": "browser-request"
   },

@@ -16,22 +16,22 @@ describe('URI', function() {
 
     URI.parse.bind(URI, 'badURI').should.throw(TypeError);
 
-    uri = URI.parse('colx:');
+    uri = URI.parse('swi:');
     expect(uri.address).to.be.undefined();
     expect(uri.amount).to.be.undefined();
     expect(uri.otherParam).to.be.undefined();
 
-    uri = URI.parse('colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG');
+    uri = URI.parse('swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG');
     uri.address.should.equal('Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG');
     expect(uri.amount).to.be.undefined();
     expect(uri.otherParam).to.be.undefined();
 
-    uri = URI.parse('colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=123.22');
+    uri = URI.parse('swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=123.22');
     uri.address.should.equal('Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG');
     uri.amount.should.equal('123.22');
     expect(uri.otherParam).to.be.undefined();
 
-    uri = URI.parse('colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=123.22' +
+    uri = URI.parse('swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=123.22' +
                     '&other-param=something&req-extra=param');
     uri.address.should.equal('Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG');
     uri.amount.should.equal('123.22');
@@ -41,24 +41,24 @@ describe('URI', function() {
 
   // TODO: Split this and explain tests
   it('URIs can be validated statically (test vector)', function() {
-    URI.isValid('colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG').should.equal(true);
-    URI.isValid('colx:yRM2dX5HJyvbFaGubkVPio9W6Y8ELDnJrm').should.equal(true);
+    URI.isValid('swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG').should.equal(true);
+    URI.isValid('swi:yRM2dX5HJyvbFaGubkVPio9W6Y8ELDnJrm').should.equal(true);
 
-    URI.isValid('colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=1.2')
+    URI.isValid('swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=1.2')
                 .should.equal(true);
-    URI.isValid('colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=1.2&other=param')
+    URI.isValid('swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=1.2&other=param')
                 .should.equal(true);
-    URI.isValid('colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=1.2&req-other=param',
+    URI.isValid('swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=1.2&req-other=param',
                 ['req-other']).should.equal(true);
-    URI.isValid('colx:ySfKnKxK4S6TkVg6kyUEdXsoLPoCe4YdVp?amount=0.1&' +
+    URI.isValid('swi:ySfKnKxK4S6TkVg6kyUEdXsoLPoCe4YdVp?amount=0.1&' +
                 'r=https%3A%2F%2Ftest.bitpay.com%2Fi%2F6DKgf8cnJC388irbXk5hHu').should.equal(true);
 
-    URI.isValid('colx:').should.equal(false);
-    URI.isValid('colx:badUri').should.equal(false);
-    URI.isValid('colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPH?amount=bad').should.equal(false);
-    URI.isValid('colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPH?amount=1.2&req-other=param')
+    URI.isValid('swi:').should.equal(false);
+    URI.isValid('swi:badUri').should.equal(false);
+    URI.isValid('swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPH?amount=bad').should.equal(false);
+    URI.isValid('swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPH?amount=1.2&req-other=param')
                 .should.equal(false);
-    URI.isValid('colx:?r=https%3A%2F%2Ftest.bitpay.com%2Fi%2F6DKgf8cnJC388irbXk5hHu')
+    URI.isValid('swi:?r=https%3A%2F%2Ftest.bitpay.com%2Fi%2F6DKgf8cnJC388irbXk5hHu')
                 .should.equal(false);
   });
 
@@ -69,7 +69,7 @@ describe('URI', function() {
   });
 
   it('do not need new keyword', function() {
-    var uri = URI('colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG');
+    var uri = URI('swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG');
     uri.should.be.instanceof(URI);
   });
 
@@ -78,26 +78,26 @@ describe('URI', function() {
     var uri;
 
     it('parses address', function() {
-      uri = new URI('colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG');
+      uri = new URI('swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG');
       uri.address.should.be.instanceof(bitcore.Address);
       uri.network.should.equal(Networks.livenet);
     });
 
     it('parses amount', function() {
-      uri = URI.fromString('colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=123.22');
+      uri = URI.fromString('swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=123.22');
       uri.address.toString().should.equal('Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG');
       uri.amount.should.equal(12322000000);
       expect(uri.otherParam).to.be.undefined();
     });
 
     it('parses a testnet address', function() {
-      uri = new URI('colx:yRM2dX5HJyvbFaGubkVPio9W6Y8ELDnJrm');
+      uri = new URI('swi:yRM2dX5HJyvbFaGubkVPio9W6Y8ELDnJrm');
       uri.address.should.be.instanceof(bitcore.Address);
       uri.network.should.equal(Networks.testnet);
     });
 
     it('stores unknown parameters as "extras"', function() {
-      uri = new URI('colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=1.2&other=param');
+      uri = new URI('swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=1.2&other=param');
       uri.address.should.be.instanceof(bitcore.Address);
       expect(uri.other).to.be.undefined();
       uri.extras.other.should.equal('param');
@@ -105,12 +105,12 @@ describe('URI', function() {
 
     it('throws error when a required feature is not supported', function() {
       (function() {
-        return new URI('colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=1.2&other=param&req-required=param');
+        return new URI('swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=1.2&other=param&req-required=param');
       }).should.throw(Error);
     });
 
     it('has no false negative when checking supported features', function() {
-      uri = new URI('colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=1.2&other=param&' +
+      uri = new URI('swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=1.2&other=param&' +
                     'req-required=param', ['req-required']);
       uri.address.should.be.instanceof(bitcore.Address);
       uri.amount.should.equal(120000000);
@@ -166,12 +166,12 @@ describe('URI', function() {
   });
 
   it('should support double slash scheme', function() {
-    var uri = new URI('colx://Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG');
+    var uri = new URI('swi://Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG');
     uri.address.toString().should.equal('Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG');
   });
 
   it('should input/output String', function() {
-    var str = 'colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?' +
+    var str = 'swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?' +
               'message=Donation%20for%20project%20xyz&label=myLabel&other=xD';
     URI.fromString(str).toString().should.equal(str);
   });
@@ -187,12 +187,12 @@ describe('URI', function() {
   });
 
   it('should support numeric amounts', function() {
-    var uri = new URI('colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=12.10001');
+    var uri = new URI('swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=12.10001');
     expect(uri.amount).to.be.equal(1210001000);
   });
 
   it('should support extra arguments', function() {
-    var uri = new URI('colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?' +
+    var uri = new URI('swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?' +
                       'message=Donation%20for%20project%20xyz&label=myLabel&other=xD');
 
     should.exist(uri.message);
@@ -209,7 +209,7 @@ describe('URI', function() {
     new URI({
       address: 'Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG',
     }).toString().should.equal(
-      'colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG'
+      'swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG'
     );
 
     new URI({
@@ -218,27 +218,27 @@ describe('URI', function() {
       message: 'Hello World',
       something: 'else'
     }).toString().should.equal(
-      'colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=1.10001&message=Hello%20World&something=else'
+      'swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG?amount=1.10001&message=Hello%20World&something=else'
     );
 
   });
 
   it('should be case insensitive to protocol', function() {
-    var uri1 = new URI('colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG');
-    var uri2 = new URI('colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG');
+    var uri1 = new URI('swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG');
+    var uri2 = new URI('swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG');
 
     uri1.address.toString().should.equal(uri2.address.toString());
   });
 
   it('writes correctly the "r" parameter on string serialization', function() {
-    var originalString = 'colx:ySfKnKxK4S6TkVg6kyUEdXsoLPoCe4YdVp?amount=0.1&' +
+    var originalString = 'swi:ySfKnKxK4S6TkVg6kyUEdXsoLPoCe4YdVp?amount=0.1&' +
                          'r=https%3A%2F%2Ftest.bitpay.com%2Fi%2F6DKgf8cnJC388irbXk5hHu';
     var uri = new URI(originalString);
     uri.toString().should.equal(originalString);
   });
 
   it('displays nicely on the console (#inspect)', function() {
-    var uri = 'colx:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG';
+    var uri = 'swi:Xo4vyw1FtA88rYPYjbNT9kwhVokHHsSuPG';
     var instance = new URI(uri);
     instance.inspect().should.equal('<URI: ' + uri + '>');
   });
