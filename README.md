@@ -1,7 +1,7 @@
 swicore-lib
 ================
 
-Based on the good work of [https://github.com/DeltaEngine/swicore-lib], a fork of [https://github.com/agustinkassis/pivcore-lib], which is based on [https://github.com/dashevo/bitcore-lib-dash], which in turn is based on [https://github.com/bitpay/bitcore-lib].
+Based on the good work of [https://github.com/DeltaEngine/bitcore-lib-colx], a fork of [https://github.com/agustinkassis/pivcore-lib], which is based on [https://github.com/dashevo/bitcore-lib-dash], which in turn is based on [https://github.com/bitpay/bitcore-lib].
 
 ## Principles
 
